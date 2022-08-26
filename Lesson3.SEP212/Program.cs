@@ -10,7 +10,9 @@ namespace Lesson3.SEP212
     {
         static void Main(string[] args)
         {
-            Exmpl03();
+            //Exmpl03();
+            //Exmpl04();
+            Exmpl06();
         }
 
         static void Lesson3()
@@ -56,7 +58,7 @@ namespace Lesson3.SEP212
             foreach (var item in textArr)
             {
                 int num = 0;
-                
+
                 if (Int32.TryParse(item, out num))
                 {
                     Console.WriteLine("This is a number!");
@@ -89,6 +91,89 @@ namespace Lesson3.SEP212
                     Console.WriteLine("False");
                 }
             }
+        }
+        static void Exmpl04()
+        {
+            string words = "класс";
+            for (int i = 0; i < words.Length - 1; i++)
+            {
+                if (words[i] == words[i + 1])
+                {
+                    string letter = words[i].ToString();
+                    words = words.Replace(letter, "1");
+                }
+            }
+            Console.WriteLine(words);
+        }
+        static void Exmpl05()
+        {
+            int[,] arr = new int[5, 5];
+            Random rnd = new Random();
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    arr[i, j] = rnd.Next(-100, 100);
+                }
+            }
+
+            int min = 0;
+            int min_i = 0;
+            int min_j = 0;
+            for (int i = 0; i < length; i++)
+            {
+                for (int j = 0; j < length; j++)
+                {
+                    min = arr[i, j];
+                    if (arr[i, j] < min)
+                    {
+                        min = arr[i, j];
+                        min_i = i;
+                        min_j = j;
+                    }
+                }
+            }
+
+            int max = 0;
+            int max_i = 0;
+            int max_j = 0;
+            for (int i = 0; i < length; i++)
+            {
+                for (int j = 0; j < length; j++)
+                {
+                    max = arr[i, j];
+                    if (arr[i, j] > max)
+                    {
+                        max = arr[i, j];
+                        max_i = i;
+                        max_j = j;
+                    }
+                }
+            }
+
+            //if (min_i < max_i && min_j < max_j)
+            //{
+            //    for (int i = min_i; i < max_i; i++)
+            //    {
+            //        for (int j = min_j; j < max_j; j++)
+            //        {
+
+            //        }
+            //    }
+            //}
+        }
+
+        static void Exmpl06()
+        {
+            string s = Console.ReadLine();
+            string[] textArr = s.Split(' ');
+            Console.WriteLine(textArr.Length);
+            foreach (var item in textArr)
+            {
+                Console.WriteLine(item);
+            }
+
         }
     }
 }
